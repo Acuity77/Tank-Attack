@@ -8,7 +8,6 @@ import org.newdawn.slick.SlickException;
 public class State implements Entity {
 	private float x ;
 	private float y ;
-]
 	private Image BlockSide = null ;
 	private Image BlockUnder = null ;
 	private Image BlockSize ;

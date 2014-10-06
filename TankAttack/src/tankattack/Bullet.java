@@ -1,8 +1,7 @@
 package tankattack;
 
+import org.newdawn.slick.GameContainer ;
 import org.newdawn.slick.Graphics;
-
-import tankattack.TankAttackGame.Entity;
 
 public class Bullet implements Entity {
 	private static final float BULLET_SIZE = 5 ;
@@ -10,11 +9,12 @@ public class Bullet implements Entity {
 	private float velocity ;
 	private float x ;
 	private float y ;
+	private float dirbullet ;
 	
-	public Bullet( float x , float y , float dir , float velocity) {
+	public Bullet( float x , float y , float dirbullet ) {
 		this.setXY(x,y) ;
-		this.dir = dir ;
-		this.velocity = velocity ;
+		this.dirbullet = dirbullet ;
+		//this.velocity = velocity ;
 	}
 	
 	@Override
@@ -23,8 +23,9 @@ public class Bullet implements Entity {
 	}
 	 
 	@Override
-	public void update(int delta) {
-		
+	public void update(GameContainer container , int delta) {
+		x+= 6*Math.sin(dirbullet*Math.PI/180) ;
+		y-= 6*Math.cos(dirbullet*Math.PI/180) ;
 	}
 	 
 	public float getX() {
